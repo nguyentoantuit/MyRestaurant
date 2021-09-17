@@ -1,0 +1,16 @@
+<%- include('../layout/adminheader') %>
+    <h2 class="page-title">Chỉnh sửa danh mục</h2>
+    <a href="/admin/categories" class="btn btn-primary">Quay lại tất cả danh mục</a>
+    <br><br>
+
+    <form method="POST" action="/admin/categories/edit-category/<%= id %>">
+        <!-- title -->
+        <div class="form-group">
+            <label for="">Tiêu đề</label>
+            <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Tiêu đề">
+        </div>
+        <br>
+        <!-- Button -->
+        <button class="btn btn-default">Hoàn thành</button>
+    </form>
+<%- include('../layout/adminfooter') %>

@@ -1,0 +1,43 @@
+<%- include('../layout/adminheader') %>
+
+    <h2 class="page-title">Danh mục</h2>
+    <a href="/admin/categories/add-category" class="btn btn-primary">Thêm một danh mục mới</a>
+    <br><br>
+
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>Danh mục</th>
+                <th>Chỉnh sửa</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% categories.forEach(function(cat) { %>
+            <tr>
+                <td><%= cat.title %></td>
+                <td><a href="/admin/categories/edit-category/<%= cat._id %>">Chỉnh sửa</a></td>
+                <td><a class="confirmDeletion" href="/admin/categories/delete-category/<%= cat._id %>">Xóa</a></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+    <!-- <script>
+        $('tbody').sortable ({
+
+            items: "tr:not('.home')",
+            placeholder: "ui-state-hightlight",
+            update: function () {
+                var ids = $('tbody').sortable("serialize");
+                var url = "/admin/categories/reorder-page";
+
+                $.post(url, ids);
+            }
+        });
+    </script> -->
+
+<%- include('../layout/adminfooter') %>

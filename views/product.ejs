@@ -1,0 +1,52 @@
+<% include layout/header %>
+
+    <div class="row">
+        <h1 class="page-header">
+            <%= p.title %>
+        </h1>
+        <div class="col-sm-4">
+            <div class="cardi m-0">
+                <img class="card-img-top" src="/product_images/<%= p.id %>/<%= p.image %>" alt="">
+                <div class="card-body text-center" style="font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;">
+                    <a href="#" class="card-title a" style="font-size: 18px">
+                        <%= p.title %>
+                    </a>
+                    <p class="card-text">
+                        <%= parseFloat(p.price).toFixed(2) %>$
+                    </p>
+                    <% if (loggedIn) { %>
+                        <p><a href="/cart/add/<%= p.slug %>" alt="" class="a">Thêm vào giỏ hàng</a></p>
+                        <% } else { %>
+                            <p>Bạn phải đăng nhập để mua các mặt hàng </p>
+                            <% } %>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-8">
+            <div class="row" style="text-align: justify;">
+                <p>
+                    <%= p.desc %>
+                </p>
+            </div>
+            <div class="row">
+
+                <% galleryImages.forEach(image=> {
+                    if(image != "thumbs") {
+                    %>
+                    <div class="col-sm-6 mb-3">
+                        <a data-fancybox="gallery" href="/product_images/<%= p.id %>/gallery/<%= image %>">
+                            <img src="/product_images/<%= p.id %>/gallery/<%= image %>" alt="">
+                        </a>
+                    </div>
+                    <% } }); %>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <% include layout/footer %>

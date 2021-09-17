@@ -1,0 +1,44 @@
+<%- include('../layout/adminheader') %>
+
+    <h2 class="page-title">Trang</h2>
+    <a href="/admin/pages/add-page" class="btn btn-primary">Thêm một trang mới</a>
+    <br><br>
+
+    <table class="table table-striped">
+
+        <thead>
+            <tr class="home">
+                <th>Tiêu đề</th>
+                <th>Hình ảnh sản phẩm</th>
+                <th>Chỉnh sửa</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% pages.forEach(function(page) { %>
+            <tr id="id_<%= page._id %>" class="<%= page._id %>">
+                <td><%= page.title %></td>
+                <td>
+                    <% if (page.image=="") { %>
+                    <img id="picture" src="/images/noimage.png">
+                    <% } else { %>
+                    <img id="picture"  src="/product_images/<%= page._id %>/<%= page.image %>">
+                    <% } %>
+                    <!-- <img src="<%= page.image %>"> -->
+                </td>
+                <td><a href="/admin/pages/edit-page/<%= page._id %>">Chỉnh sửa</a></td>
+                <% if (page.slug == "home") { %>
+                <td></td>
+                <% } else {%>
+                <td><a class="confirmDeletion" href="/admin/pages/delete-page/<%= page._id %>">Xóa</a></td>
+                <% }%>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+
+
+<%- include('../layout/adminfooter') %>
