@@ -28,5 +28,17 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
-  }
+  },
+  "description": "\"#MyRestaurant\"",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoanganh58/restaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoanganh58/restaurant/issues"
+  },
+  "homepage": "https://github.com/hoanganh58/restaurant#readme"
 }
