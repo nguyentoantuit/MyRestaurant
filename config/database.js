@@ -1,4 +1,4 @@
 module.exports = {
     
-    database: "mongodb://localhost/cmscart",
+    database: "mongodb+srv://nguyentoanuit:zdTshSqkxx3gIQJD@cluster0.gt7yv.mongodb.net/restaurant?retryWrites=true&w=majority",
 };
